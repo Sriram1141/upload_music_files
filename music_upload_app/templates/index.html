@@ -1,0 +1,23 @@
+<!DocType HTML>
+<html lang="en">
+    <head>
+        <title>Upload</title>
+    </head>
+    <body>
+        <h2>File uploader</h2>
+        <form id="upload-form" action="{{url_for('upload')}}" method="POST" enctype="multipart/form-data">
+            <input name="file" type="file" accept="audio/*" multiple >
+			<select name= 'language' method="GET" action="/">
+				{% for language in languages %}
+				<option value= "{{language}}" SELECTED>{{ language }}</option>
+				{% endfor %}
+			</select>
+            <input type="submit" value="upload">
+			
+			<br/>
+			{{directory}}
+			<br/>
+			{{target}}
+        </form>
+        </body>
+</html>
